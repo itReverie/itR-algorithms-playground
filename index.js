@@ -2,38 +2,28 @@
 
     function solveProblem() {
         var inputCharacters = document.getElementById('inputCharacters').value;
-        document.getElementById('result').innerHTML=isAnyPermutationPalindrome(inputCharacters);
+        document.getElementById('result').innerHTML=hasPalindromePermutation(inputCharacters);
     }
 
     ///The problem is solved using a HASHTABLE
-    function isAnyPermutationPalindrome(word)
-    {
-        var wordCharacters=Array.from(word);
-        var arrayOfLetters=[];
-        var numberOfUnevenLetters=0;
+    function hasPalindromePermutation(theString) {
 
-        wordCharacters.forEach(function(letter){
-             (arrayOfLetters.hasOwnProperty(letter)) ? arrayOfLetters[letter] = arrayOfLetters[letter] + 1
-                                                     : arrayOfLetters[letter] = 1;
-            //console.log('key:'+ letter +' value: '+arrayOfLetters[letter]);
+        // track characters we've seen an odd number of times
+        var unpairedCharacters = new Set();
 
-         });
+        for (var i = 0; i < theString.length; i++) {
+            var char = theString[i];
 
-
-        for(var key in arrayOfLetters)
-        {
-             //console.log(key);
-            if(numberOfUnevenLetters > 1){
-                break;
-            }
-
-            //If it is uneven
-            if(arrayOfLetters[key] % 2 !== 0)
-            {
-                numberOfUnevenLetters +=1;
+            if (unpairedCharacters.has(char)) {
+                unpairedCharacters.delete(char);
+            } else {
+                unpairedCharacters.add(char);
             }
         }
 
-        return (numberOfUnevenLetters > 1) ? false : true;
+        // the string has a palindrome permutation if it
+        // has one or zero characters without a pair
+        return unpairedCharacters.size <= 1;
     }
+
 
