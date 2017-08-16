@@ -5,6 +5,7 @@
         document.getElementById('result').innerHTML=isAnyPermutationPalindrome(inputCharacters);
     }
 
+    ///The problem is solved using a HASHTABLE
     function isAnyPermutationPalindrome(word)
     {
         var wordCharacters=Array.from(word);
@@ -26,15 +27,12 @@
                 break;
             }
 
-            //if(arrayOfLetters[key]) {
-                //If it is uneven
-                if(arrayOfLetters[key] % 2 !== 0)
-                {
-                    numberOfUnevenLetters +=1;
-                }
-            //}
+            //If it is uneven
+            if(arrayOfLetters[key] % 2 !== 0)
+            {
+                numberOfUnevenLetters +=1;
+            }
         }
-
 
         return (numberOfUnevenLetters > 1) ? false : true;
     }
