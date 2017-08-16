@@ -2,9 +2,7 @@ window.onload = function(e) {
 
     function solveProblem() {
         var inputCharacters = document.getElementById('inputCharacters').value;
-
-        alert(inputCharacters);
+        document.getElementById('result').innerHTML=method(inputCharacters);
     }
-
 
 }
