@@ -26,19 +26,21 @@
 
     function isValid(code) {
 
-        //Dictionary of objects
+        // //Dictionary of objects
         // var openersToClosers = [
         //     {key:'(', value: ')'},
         //     {key:'[', value: ']'},
         //     {key:'{', value: '}'}
         // ];
 
-        //Dictionary
+        //Array
         var openersToClosers = {
             '(': ')',
             '[': ']',
             '{': '}'
         };
+
+        console.log(openersToClosers);
 
         var openers = new Set(['(', '[', '{']);
         var closers = new Set([')', ']', '}']);
