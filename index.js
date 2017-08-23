@@ -23,9 +23,12 @@
 
         var permutations = new Set();
 
-        permutationOfAllCharsExceptLast.forEach(function getPermutations(permutationOfAllCharsExceptLast) {
+        permutationOfAllCharsExceptLast.forEach(
+            function getPermutations(permutationOfAllCharsExceptLast) {
             for (var position = 0; position <= allCharsExceptLast.length; position++) {
-                var permutation = permutationOfAllCharsExceptLast.slice(0, position) + lastChar + permutationOfAllCharsExceptLast.slice(position);
+                var permutation = permutationOfAllCharsExceptLast.slice(0, position)
+                                    + lastChar
+                                    + permutationOfAllCharsExceptLast.slice(position);
                 console.log(permutation);
                 permutations.add(permutation);
             }
