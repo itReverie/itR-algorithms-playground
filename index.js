@@ -12,9 +12,9 @@
             return new Set(string);
         }
 
-        var allCharsExceptLast = string.slice(0, -1);
+        var allCharsExceptLast = string.slice(0,-1);
         console.log('allCharsExceptLast: '+allCharsExceptLast);
-        var lastChar = string[string.length - 1];
+        var lastChar = string.slice(-1);//[string.length - 1];
         console.log('lastChar: '+lastChar);
 
 
