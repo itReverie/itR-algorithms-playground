@@ -27,58 +27,56 @@ function findSum(array = [1, 2, 5, 9, 8, 5], target = 10) {
 //console.log(results);
 
 
-//Given an ordered array find the indexes that would give you the sum
+//Given an ordered array find the indexes of the pairs that would give you the sum of the target
 //For example: [1,2,3,5,7,9,8,18,90 ]
 //Target: 10
-//array with [2,8], [5,5]
+//Answer indexes:               [0,7], [1,6], [2,5]
+//Answer belong to the pairs:   [1+9], [2+8], [3,7]
 
-function findSumInOrderArray(array = [1, 2, 3, 5, 7, 8, 9], target = 10) {
+function findSumInOrderArray(array = [1, 2, 3, 5, 7, 8, 9, 18, 90], target = 10) {
 
     let results = [];
 
     for (let i = 0; i < array.length; i++) {
         //I am just interested to search in the smaller items than the target.
         if (array[i] < target) {
-            var result = binarySearch(array, target-array[i] , i+1);
+            var result = binarySearch(array, target-array[i] , i);
             if(result !== undefined) {
                 results.push(result);
             }
         }
     }
-    console.log(results);
     return results;
 }
 
 
 function binarySearch(array, target, start) {
 
-    let low = start;
-    let hight = array.length - 1;
+    let low = start; //start in the coming value
+    let hight = array.length;
 
     while (low +1 < hight) {
         let distance = hight - low;
         let halfDistance = Math.floor(distance / 2);
 
-        let auxK = low + halfDistance;
-        let auxV = array[auxK];
+        let auxKey = low + halfDistance;
+        let auxValue = array[auxKey];
 
-        if (auxV === target) {
+        if (auxValue === target) {
             //Yay!! we found the complement
-            var r={number1: start, number2: auxK + 1};
-            console.log({number1: start, number2: auxK + 1});
-            return r;
+            return {indexNumber1: start, indexNumber2: auxKey + 1};
         }
 
-        if (auxV < target) {
+        if (auxValue < target) {
             //the target might be on the right
-            low = auxK;
+            low = auxKey;
         }
         else {
             //the target might be on the left
-            hight = auxK;
+            hight = auxKey;
         }
     }
 
 }
 
-findSumInOrderArray();
+console.log(findSumInOrderArray());
