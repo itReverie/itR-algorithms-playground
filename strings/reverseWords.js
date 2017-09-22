@@ -3,24 +3,16 @@
 // Result: "blue     is     sky   the   "
 
 (function reverse(sentence) {
-    let array = Array.from(sentence);
-    let start=array.length-1,end = array.length-1;
+    let end = sentence.length;
     let reverseWord='';
 
-    for (let i = array.length; i > 0; i--) {
-        let currentChar = array[start] - array[end];
-        if (currentChar === ' ') {
-                end++;
-        }
-        else {
-            reverseWord += sentence.slice(end, start+1);
-            start=end-1;
+    for (let start = end; start >= -1; start--) {
+        let previousChar = sentence[start-1];
+        if ((previousChar === ' ') ||(start === 0) ) {
+            reverseWord += sentence.substring(start, end);
             end=start;
         }
     }
-
-    console.log(reverseWord);
     return reverseWord;
-})("The     sky     is     blue");
-
+})("The   sky is blue");
 
