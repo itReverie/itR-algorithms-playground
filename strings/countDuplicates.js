@@ -22,4 +22,26 @@ function duplicateCount(text){
    return duplicates;
 }
 
-console.log(duplicateCount('aa11cdrc'));
+
+function duplicateCountWithASet(text){
+    let set=new Set();
+    let duplicates=0;
+
+    text=text.toLowerCase();
+    let chars=text.split('');
+
+    chars.forEach(function(char){
+        if(!set.has(char)) {
+            let firstOcurrence = text.indexOf(char);
+            let lastOccurence = text.lastIndexOf(char);
+            if (firstOcurrence !== lastOccurence) {
+                set.add(char);
+                duplicates++;
+            }
+        }
+    });
+    return duplicates;
+}
+
+
+console.log(duplicateCountWithASet('Indivisibilities'));
