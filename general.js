@@ -40,3 +40,10 @@ var asciiToChar= function ()
      console.log(word2);
      console.log(word3);
  }
+
+
+ //Evaluates if a word contains a number
+ function containsNumber(word) {
+     let hasNumber = /\d/.test(word)
+     return hasNumber;
+ }
