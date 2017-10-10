@@ -5,7 +5,7 @@ function containsCycle(firstNode) {
     var slowRunner = firstNode;
     var fastRunner = firstNode;
 
-    // until we hit the end of the list
+    // until we hit the end of the linkedList
     while (fastRunner && fastRunner.next) {
         slowRunner = slowRunner.next;
         fastRunner = fastRunner.next.next;
@@ -16,6 +16,6 @@ function containsCycle(firstNode) {
         }
     }
 
-    // case: fastRunner hit the end of the list
+    // case: fastRunner hit the end of the linkedList
     return false;
 }

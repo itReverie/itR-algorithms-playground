@@ -1,4 +1,4 @@
-var array = [1, 2, 3, 1, 3, 2];
+var array = [1, 2, 3, 4, 1, 5];
 
 var result = findRepeat(array);
 console.log('the result is: '+result);

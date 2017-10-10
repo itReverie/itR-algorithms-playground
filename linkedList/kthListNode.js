@@ -1,3 +1,5 @@
+//In this solution we solve it in O(n) time and O(n) space
+
 function Linkedlist(value){
     this.value=value;
     this.next=null;
@@ -20,8 +22,29 @@ e.next = f;
 f.next = g;
 g.next = h;
 
-var result=kthToLastNode (7, a);
+var result=kthToLastNode (4, a);
 console.log("Result="+result );
+
+var result=kthToLastNodeNoSpace (4, a);
+console.log("Result without space="+result.value );
+
+function kthToLastNodeNoSpace(k, head) {
+    let currNode = head;
+    let  middle = head;
+    let counter = 0;
+
+    while (currNode != null) {
+        counter++;
+        currNode = currNode.next;
+
+        //In this case I use mod 2 as I need to find the half or middle element so mod  and next will help me to identify withouth having to iterate another loop
+        if (counter % k == 0) {
+            middle = middle.next;
+        }
+    }
+    return middle;
+}
+
 
 function kthToLastNode(k, node)
 {
@@ -31,7 +54,7 @@ function kthToLastNode(k, node)
     while(node && node.next){
 
         node= node.next;
-        console.log(node.value);
+        //console.log(node.value);
         counter++;
         dictionaryPositionvalue[counter] = node.value;
     }
