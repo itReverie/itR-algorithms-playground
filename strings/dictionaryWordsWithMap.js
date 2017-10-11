@@ -62,6 +62,8 @@ const getWords = function (text) {
             }
         }
 
+        //TODO: Count as word back-end. Currently this algorithms does not include this case as valid.
+        //TODO: Improve edge cases.
         //The word could be among punctuations so we make sure to extract just the word. For example (Hello)
         for (let i = 0; i < wordWithPunctuation.length; i++) {
             if (wordWithPunctuation[i].length > 1) {
@@ -113,7 +115,7 @@ function SaveInFile(content, fileName) {
 
     SaveInFile(JSON.stringify(dictionary), fileName);
 
-})('Run this text 100 to create an amazing dictionary 1/10 of w0rds. Run me! Run me!', './dictionary.json');
+})('Run this text 100 to create an amazing dictionary 1/10 of w0rds. Run-me! Run me!', './dictionary.json');
 
 
 ///    Adult beavers have long flat tails that are about a foot long. Beavers slap their tails on the water surface as an alarm to alert the colony when they sense danger. Female beavers are larger than male beavers of the same age. Prior to European immigration there were over 60 million beavers in North America. Due primarily to over trapping beavers were an endangered species in the early part of the 20th Century. Beavers are very active on Pinterest and often are considered social media mavens. Tiny beavers (Microtheriomys brevirhinus) lived in Oregon 28 Million Years Ago. They were 1/10 the size of modern beavers.'));

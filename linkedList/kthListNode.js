@@ -28,21 +28,26 @@ console.log("Result="+result );
 var result=kthToLastNodeNoSpace (4, a);
 console.log("Result without space="+result.value );
 
+
+
 function kthToLastNodeNoSpace(k, head) {
-    let currNode = head;
-    let  middle = head;
-    let counter = 0;
+    let pointer1 = head;
+    let pointer2 = head;
+    let counter = 1;
 
-    while (currNode != null) {
+    while(counter<=k){
         counter++;
-        currNode = currNode.next;
-
-        //In this case I use mod 2 as I need to find the half or middle element so mod  and next will help me to identify withouth having to iterate another loop
-        if (counter % k == 0) {
-            middle = middle.next;
-        }
+        pointer2 = pointer2.next;
     }
-    return middle;
+    //pointer1 and pointer2 are k distance apart
+
+    while (pointer2 != null) {
+        counter++;
+        pointer1 = pointer1.next;
+        pointer2 = pointer2.next;
+    }
+
+    return pointer1;
 }
 
 
