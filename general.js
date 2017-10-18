@@ -31,15 +31,54 @@ var asciiToChar= function ()
  var slicingWords= function()
  {
      //Playing with slices
-     let word= 'Ana';
+     let word= 'bc';
+     let word1= word.slice(0, 1);
+     //let word2= 'Ana';
+     let word3=  word.slice(1);
+
+     console.log(word1);
+     //console.log(word2);
+     console.log(word3);
+ }
+
+
+
+ var slicingArrays= function()
+ {
+     //Playing with slices
+     let word= ['A','n','a'];
      let word1= word.slice(0, 0);
-     let word2= 'A';
+     //let word2= 'Ana';
      let word3=  word.slice(0);
 
      console.log(word1);
-     console.log(word2);
+     //console.log(word2);
      console.log(word3);
  }
+
+
+ var addingRemovingLetters= function()
+ {
+     //Playing with slices
+     let word= 'abc';
+     let letter = word[0];
+     console.log(letter);
+
+     //Removing
+     word=  word.replace(letter,'');
+     console.log(word);
+     //Adding
+     word += letter ;
+     console.log(word);
+
+
+     //Removing
+     word=  word.replace('abc','');
+     console.log(word);
+
+ }
+
+
 
 
  //Evaluates if a word contains a number
