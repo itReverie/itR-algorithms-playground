@@ -1,8 +1,13 @@
-function permutationYay(base,word)
+function permutationSegment(base,word, uniqueNumbers)
 {
     if (word.length === 0)//undefined || isNaN(base))
     {
-        console.log(base);
+        let ipNumber=parseInt(base);
+
+        if(ipNumber<=255 && !uniqueNumbers.has(ipNumber) ) {
+            uniqueNumbers.add(ipNumber);
+            console.log(uniqueNumbers);
+        }
     }
     else
     {
@@ -13,29 +18,22 @@ function permutationYay(base,word)
             base +=letter;
             let newWord =word.replace(letter, '');
 
-            //console.log('b-1: ',base);
-            //console.log('w-1: ',newWord);
-
             //explore
-            permutationYay(base,newWord);
+            permutationSegment(base,newWord, uniqueNumbers);
 
             //un-chose
             //I am using another variable for word so no need to backtrack
             //I just need to back track the base
 
             base = base.replace(letter,'');
-            //console.log('b-b: ',base);
-            //console.log('w-b: ',word);
-            //console.log('~~~~~~~~~~~~~~~~~~~~');
         }
     }
-    //console.log('-------------------');
 }
 
 function permute(word){
-
-    permutationYay('',word);
+    let uniqueNumbers=new Set();
+    permutationSegment('',word, uniqueNumbers);
 }
 
-permute('abc');
+permute('135.123');
 
