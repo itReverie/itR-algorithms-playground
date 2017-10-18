@@ -14,6 +14,8 @@ function permutationSegment(base,word, uniqueNumbers)
         for(let position=0; position < word.length; position++)
         {
             //choose
+
+
             let letter = word[position];
             base +=letter;
             let newWord =word.replace(letter, '');
